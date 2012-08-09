@@ -1,0 +1,17 @@
+webkit needs to call nss to pull in nspr headers
+Index: sid/src/chrome/chrome_common.gypi
+===================================================================
+--- sid.orig/src/chrome/chrome_common.gypi	2012-08-06 10:29:01.000000000 +0200
++++ sid/src/chrome/chrome_common.gypi	2012-08-06 12:12:25.157554613 +0200
+@@ -299,6 +299,11 @@
+             '<(DEPTH)/third_party/wtl/include',
+           ]
+         }],
++        ['OS=="linux"', {
++          'include_dirs': [
++            '/usr/include/nspr',
++          ],
++        }],
+         ['toolkit_uses_gtk == 1', {
+           'dependencies': [
+             '../build/linux/system.gyp:gtk',
