@@ -1,15 +1,38 @@
-chromium-browser (21.0.1180.57~r148591-1blankon1) rote; urgency=low
+chromium-browser (21.0.1180.75~r150248-1blankon1) rote; urgency=low
 
   * New upstream release
   * rebranding debian/rules
   * rebranding debian/control
   * rebranding debian/master_prefences
-  * rebranding debian.chromium.sh.in
+  * rebranding debian.chromium.sh.in .
   
- -- Rahman Yusri Aftian <aftian@di.blankon.in>  Thu, 09 Aug 2012 10:34:22 +0700
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sat, 11 Aug 2012 18:57:40 +0700
+
+chromium-browser (21.0.1180.75~r150248-1) unstable; urgency=medium
+
+  [ Shawn Landden ]
+  * [b7c6ba3] update changelog to record changes in last upload
+  * [3c6a149] master_prefs: don't go straight to internet, don't prompt to change default browser
+  * [e441276] initial_bookmarks.html: add Debian support page
+  * [2bb621a] compress source tarball as xz (Closes: #676774)
+
+  [ Giuseppe Iuculano ]
+  * New stable minor release fixing the following issues:
+    - REGRESSION: Rendering difference in Chrome 21 and 22 that affected on
+      Persian Wikipedia
+    - Some known crashes
+    - Audio objects are not "switched" immediately
+    - Print and Print Preview ignore paper size default in printer config
+    - Candidate windows is shown in wrong place in Retina display
+    - more of the choppy and distorted audio issues 
+    - Japanese characters showing in Chinese font 
+    - Sync invalidation notification broken after restart
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Fri, 10 Aug 2012 17:31:57 +0200
 
 chromium-browser (21.0.1180.57~r148591-1) unstable; urgency=medium
 
+  [ Giuseppe Iuculano ]
   * [fd04758] Install demo extension
   * New upstream stable release:
     - Medium CVE-2012-2846: Cross-process interference in
@@ -35,6 +58,11 @@ chromium-browser (21.0.1180.57~r148591-1) unstable; urgency=medium
       Jeff Roberts of Google Security Team.
     - Medium CVE-2012-2860: Out-of-bounds access when clicking in date
       picker. Credit to Chamal de Silva.
+  [ Shawn Landden ]
+   * [0d2e43a9] Switch to xz/lzma2 compression for debs. (from lzma)
+   * [e3e9a801] replace incorrect prefs.patch with patch from OpenSUSE
+   * [faed2b9e] /etc/chromium/master_preferences: don't bug user for
+       Google account.
 
  -- Giuseppe Iuculano <iuculano@debian.org>  Tue, 07 Aug 2012 10:55:17 +0200
 
