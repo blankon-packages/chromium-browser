@@ -341,7 +341,7 @@ GYP_DEFINES += \
 	use_system_sqlite=$(USE_SYSTEM_SQLITE) \
 	use_system_libxml=1 \
 	use_system_libxslt=1 \
-	use_system_zlib=1 \
+	use_system_zlib=0 \
 	use_system_libevent=1 \
 	use_system_icu=0 \
 	use_system_yasm=1 \
@@ -429,8 +429,8 @@ subst_files = \
 	    < $< > $@
 
 pre-build:: $(subst_files)
-ifneq (,$(findstring BlankOn,$(DEBIAN_DIST)))
-	sed -ri '/const PrepopulatedEngine google = \{/,/\}\;/ { s/sourceid=chrome\&/&client=blankon\&channel=cs\&/g; }' \
+ifneq (,$(findstring Ubuntu,$(DEBIAN_DIST)))
+	sed -ri '/const PrepopulatedEngine google = \{/,/\}\;/ { s/sourceid=chrome\&/&client=ubuntu\&channel=cs\&/g; }' \
 		src/chrome/browser/search_engines/template_url_prepopulate_data.cc
 endif
 
@@ -488,8 +488,8 @@ common-install-prehook-impl::
 	cd debian/tmp/$(LIB_DIR) && rm -f $(INSTALL_EXCLUDE_FILES)
 	# Launcher script
 	mkdir -p debian/tmp/usr/bin
-ifneq (,$(findstring BlankOn,$(DEBIAN_DIST)))
-	sed -ri 's:'CHROME_VERSION_EXTRA=BlankOn':'CHROME_VERSION_EXTRA=BlankOn':' debian/$(DEBIAN_NAME).sh
+ifneq (,$(findstring Debian,$(DEBIAN_DIST)))
+	sed -ri 's:'CHROME_VERSION_EXTRA=Ubuntu':'CHROME_VERSION_EXTRA=Debian':' debian/$(DEBIAN_NAME).sh
 endif
 	cp -a debian/$(DEBIAN_NAME).sh debian/tmp/usr/bin/$(DEBIAN_NAME)
 	chmod 755 debian/tmp/usr/bin/$(DEBIAN_NAME)
