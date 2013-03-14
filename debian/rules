@@ -53,6 +53,12 @@ endif
 # Disable SSE2
 GYP_DEFINES = disable_sse2=1
 
+#Debian Chromium Api Key
+GYP_DEFINES += google_api_key='AIzaSyCkfPOPZXDKNn8hhgu3JrA62wIgC93d44k'
+GYP_DEFINES += google_default_client_id='811574891467.apps.googleusercontent.com'
+GYP_DEFINES += google_default_client_secret='kdloedMFGdGla2P1zacGjAQh'
+
+
 # Enable all codecs for HTML5 in chromium, depending on which ffmpeg sumo lib
 # is installed, the set of usable codecs (at runtime) will still vary
 GYP_DEFINES += proprietary_codecs=1
@@ -77,6 +83,10 @@ endif
 
 #disable tcmalloc
 GYP_DEFINES += linux_use_tcmalloc=0
+
+# Use explicit library dependencies instead of dlopen.
+# This makes breakages easier to detect by revdep-rebuild.
+GYP_DEFINES += linux_link_gsettings=1
 
 DEB_HOST_ARCH_CPU := $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU)
 DEB_HOST_ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH)
@@ -337,7 +347,7 @@ ifeq (1,$(WANT_SYSTEM_LIBS))
 GYP_DEFINES += \
 	use_system_bzip2=1 \
 	use_system_libjpeg=1 \
-	use_system_libpng=1 \
+	use_system_libpng=0 \
 	use_system_sqlite=$(USE_SYSTEM_SQLITE) \
 	use_system_libxml=1 \
 	use_system_libxslt=1 \
@@ -346,7 +356,7 @@ GYP_DEFINES += \
 	use_system_icu=0 \
 	use_system_yasm=1 \
 	use_system_ffmpeg=$(USE_SYSTEM_FFMPEG) \
-	use_system_vpx=1 \
+	use_system_libvpx=1 \
 	use_system_xdg_utils=1 \
 	use_system_flac=1 \
 	use_system_libwebp=0 \
@@ -488,7 +498,7 @@ common-install-prehook-impl::
 	cd debian/tmp/$(LIB_DIR) && rm -f $(INSTALL_EXCLUDE_FILES)
 	# Launcher script
 	mkdir -p debian/tmp/usr/bin
-ifneq (,$(findstring BlankOn,$(DEBIAN_DIST)))
+ifneq (,$(findstring Debian,$(DEBIAN_DIST)))
 	sed -ri 's:'CHROME_VERSION_EXTRA=BlankOn':'CHROME_VERSION_EXTRA=Debian':' debian/$(DEBIAN_NAME).sh
 endif
 	cp -a debian/$(DEBIAN_NAME).sh debian/tmp/usr/bin/$(DEBIAN_NAME)
@@ -596,7 +606,7 @@ compare:
 	# Find missing
 	@find $(PKG_DIRS) -type f -print | grep -v /DEBIAN/ | grep -vE '(/usr/lib/debug|/test-results/|/locales/|/inspector/)' | \
 	  grep $(LIB_DIR) | cut -d/ -f5- | sort > /tmp/pkg-$$$$.indebs ; \
-	find debian/tmp/$(LIB_DIR) -type f -print | cut -d/ -f5- | grep -vE '(\.log$$|/locales/|/inspector/)' | sort > /tmp/pkg-$$$$.inhammer ; \
+	find debian/tmp/$(LIB_DIR) -type f -print | cut -d/ -f5- | grep -vE '(\.log$$|/locales/|/inspector/|\.stamp$$)' | sort > /tmp/pkg-$$$$.inhammer ; \
 	diff -u /tmp/pkg-$$$$.inhammer /tmp/pkg-$$$$.indebs ; \
 	if [ $$? -eq 0 ] ; then \
 	  echo " => All fine" ; \
@@ -630,7 +640,7 @@ CHROMIUM_URL := http://src.chromium.org/svn/trunk/src
 CHROMIUM_RLZ := http://src.chromium.org/svn/releases
 DEPS_URL     := http://src.chromium.org/svn/trunk/deps/third_party
 GREEN_REV_URL := http://chromium-status.appspot.com/lkgr
-CHANNELS_URL  := http://omahaproxy.appspot.com/
+CHANNELS_URL  := http://omahaproxy.appspot.com/all
 
 # See Staying Green More Of The Time at http://dev.chromium.org/developers/how-tos/get-the-code
 USE_GREEN_REV ?= 0
@@ -691,6 +701,13 @@ STRIPPED_DIRS := \
 	tools/wine_valgrind \
 	v8/test/cctest \
 	webkit/data/layout_tests \
+	native_client/toolchain/linux_x86/info \
+	native_client/toolchain/linux_x86/man \
+	native_client/toolchain/linux_x86/share/info \
+	native_client/toolchain/linux_x86/x86_64-nacl/share/info \
+	native_client/toolchain/linux_x86_newlib/info \
+	native_client/toolchain/linux_x86_newlib/man \
+	native_client/toolchain/linux_x86_newlib/share/info \
 	$(NULL)
 
 # There are directories we want to strip, but that are unnecessarily required by the build-system
@@ -822,7 +839,11 @@ ifneq (,$(STRIPPED_SYSTEM_LIB_DIRS))
 endif
 endif
 	# Remove binaries
-	cd $(TMP_DDIR)/src && find . -type f \( -iname \*.exe -o -iname \*.dll -o -iname \*.pdb -o -name \*.o -o -name \*.a -o -name \*.dylib \) -exec rm -fv {} \; > REMOVED-bin_only.txt
+	cd $(TMP_DDIR)/src && find . -type f \( -iname \*.exe -o -iname \*.dll -o -iname \*.pdb -o -name \*.o -o -name \*.a -o -name \*.dylib -o -name \*.so -o -name \*.so.\* \) -ls -delete > REMOVED-bin_only.txt
+	wc -l $(TMP_DDIR)/src/REMOVED-*.txt
+
+	# Remove cache files and backups
+	cd $(TMP_DDIR)/src && find . -type f \( -iname \*.bak -o -iname \*.orig -o -iname \*.cache \) -ls -delete > REMOVED-ephemera.txt
 	wc -l $(TMP_DDIR)/src/REMOVED-*.txt
 	
 gos-pack: TMP_DIR  = $(TMP_DDIR)
@@ -835,7 +856,7 @@ gos-pack: REVISION = $(shell cd $(TMP_DIR)/src && svn log --xml --limit 1 | grep
 gos-pack: VERSION  = $(shell cut -d= -f2 $(TMP_DIR)/src/chrome/VERSION | sed -e 's,$$,.,' | tr -d '\n' | sed -e 's/.$$//')~svn$(REVISION)
 else
 gos-pack: REVISION = $(shell cd $(TMP_DIR)/src && svn log --xml --limit 1 | grep '^ *revision=' | cut -d'"' -f2)
-gos-pack: VERSION  = $(shell cut -d= -f2 $(TMP_DIR)/src/chrome/VERSION | sed -e 's,$$,.,' | tr -d '\n' | sed -e 's/.$$//')~r$(REVISION)
+gos-pack: VERSION  = $(shell cut -d= -f2 $(TMP_DIR)/src/chrome/VERSION | sed -e 's,$$,.,' | tr -d '\n' | sed -e 's/.$$//')
 endif
 endif
 gos-pack:

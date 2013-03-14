@@ -1,3 +1,224 @@
+chromium-browser (25.0.1364.160-1blankon1) rote-updates; urgency=low
+
+  * New Upstream release 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Thu, 14 Mar 2013 17:11:06 +0700
+
+chromium-browser (25.0.1364.160-1) unstable; urgency=high
+
+  * New stable security release:
+    - High CVE-2013-0912: Type confusion in WebKit. Credit to Nils and Jon of
+      MWR Labs.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 08 Mar 2013 03:46:20 +0000
+
+chromium-browser (25.0.1364.152-1) unstable; urgency=high
+
+  * [8761d73] Remove armel and armhf. We cannot support them in wheezy
+  * New stable security release:
+    - High CVE-2013-0902: Use-after-free in frame loader. Credit to
+      Chamal de Silva.
+    - High CVE-2013-0903: Use-after-free in browser navigation
+      handling. Credit to "chromium.khalil".
+    - High CVE-2013-0904: Memory corruption in Web Audio.
+      Credit to Atte Kettunen of OUSPG.
+    - High CVE-2013-0905: Use-after-free with SVG animations.
+      Credit to Atte Kettunen of OUSPG.
+    - High CVE-2013-0906: Memory corruption in Indexed DB. Credit to Google
+      Chrome Security Team (Jüri Aedla).
+    - Medium CVE-2013-0907: Race condition in media thread handling. Credit
+      to Andrew Scherkus of the Chromium development community.
+    - Medium CVE-2013-0908: Incorrect handling of bindings for extension
+      processes.
+    - Low CVE-2013-0909: Referer leakage with XSS Auditor. Credit to Egor
+      Homakov.
+    - Medium CVE-2013-0910: Mediate renderer -> browser plug-in loads more
+      strictly. Credit to Google Chrome Security Team (Chris Evans).
+    - High CVE-2013-0911: Possible path traversal in database handling.
+      Credit to Google Chrome Security Team (Jüri Aedla).
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Tue, 05 Mar 2013 11:14:34 +0100
+
+chromium-browser (25.0.1364.97-1) unstable; urgency=low
+
+  * New stable release:
+    - High CVE-2013-0879: Memory corruption with web audio
+      node. Credit to Atte Kettunen of OUSPG.
+    - High CVE-2013-0880: Use-after-free in database handling.
+      Credit to Chamal de Silva.
+    - Medium CVE-2013-0881: Bad read in Matroska handling. Credit to
+      Atte Kettunen of OUSPG.
+    - High CVE-2013-0882: Bad memory access with excessive SVG
+      parameters. Credit to Renata Hodovan.
+    - Medium CVE-2013-0883: Bad read in Skia. Credit to Atte
+      Kettunen of OUSPG.
+    - Low CVE-2013-0884: Inappropriate load of NaCl. Credit to Google
+      Chrome Security Team (Chris Evans).
+    - Medium CVE-2013-0885: Too many API permissions granted to web store.
+    - Low CVE-2013-0887: Developer tools process has too many
+      permissions and places too much trust in the connected server.
+    - Medium CVE-2013-0888: Out-of-bounds read in Skia. Credit to Google
+      Chrome Security Team (Inferno).
+    - Low CVE-2013-0889: Tighten user gesture check for dangerous file
+      downloads.
+    - High CVE-2013-0890: Memory safety issues across the IPC
+      layer. Credit to Google Chrome Security Team (Chris Evans).
+    - High CVE-2013-0891: Integer overflow in blob handling. Credit to
+      Google Chrome Security Team (Jüri Aedla).
+    - Medium CVE-2013-0892: Lower severity issues across the IPC layer.
+      Credit to Google Chrome Security Team (Chris Evans).
+    - Medium CVE-2013-0893: Race condition in media handling. Credit to
+      Andrew Scherkus of the Chromium development community.
+    - High CVE-2013-0894: Buffer overflow in vorbis decoding. Credit to
+      Google Chrome Security Team (Inferno).
+    - High CVE-2013-0895: Incorrect path handling in file
+      copying. Credit to Google Chrome Security Team (Jüri Aedla).
+    - High CVE-2013-0896: Memory management issues in plug-in message
+      handling. Credit to Google Chrome Security Team (Cris Neckar).
+    - High CVE-2013-0898: Use-after-free in URL handling. Credit to
+      Alexander Potapenko of the Chromium development community.
+    - Low CVE-2013-0899: Integer overflow in Opus handling. Credit to
+      Google Chrome Security Team (Jüri Aedla).
+    - Medium CVE-2013-0900: Race condition in ICU. Credit to Google Chrome
+      Security Team (Inferno).
+  * [a5f15ae] Added libpci-dev to B-depends
+  * [ace2b7a] Refreshed patches
+  * [32c84fa] Install remoting_locales
+  * [f868804] Do not enable NEON on ARM, thanks Ubuntu.
+  * [d1a3e36] Ignore stamp files in missing checks
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Sat, 23 Feb 2013 11:45:07 +0100
+
+chromium-browser (24.0.1312.68-1) unstable; urgency=high
+
+  * New stable release:
+    - High CVE-2013-0839: Use-after-free in canvas font handling.
+      Credit to Atte Kettunen of OUSPG.
+    - Medium CVE-2013-0840: Missing URL validation when opening new
+      windows.
+    - High CVE-2013-0841: Unchecked array index in content blocking. Credit
+      to Google Chrome Security Team (Chris Evans).
+    - Medium CVE-2013-0842: Problems with NULL characters embedded in
+      paths. Credit to Google Chrome Security Team (Jüri Aedla).
+    - High CVE-2012-5145: Use-after-free in SVG layout. Credit to
+      Atte Kettunen of OUSPG. 
+    - High CVE-2012-5146: Same origin policy bypass with malformed
+      URL. Credit to Erling A Ellingsen and Subodh Iyengar, both of Facebook. 
+    - High CVE-2012-5147: Use-after-free in DOM handling. Credit to
+      José A. Vázquez. 
+    - Medium CVE-2012-5148: Missing filename sanitization in hyphenation
+      support. Credit to Google Chrome Security Team (Justin Schuh). 
+    - High CVE-2012-5149: Integer overflow in audio IPC handling. Credit to
+      Google Chrome Security Team (Chris Evans). 
+    - High CVE-2012-5150: Use-after-free when seeking video. Credit to
+      Google Chrome Security Team (Inferno). 
+    - High CVE-2012-5151: Integer overflow in PDF JavaScript. Credit to
+      Mateusz Jurczyk, with contribution from Gynvael Coldwind, both of Google
+      Security Team. 
+    - Medium CVE-2012-5152: Out-of-bounds read when seeking video. Credit
+      to Google Chrome Security Team (Inferno). 
+    - High CVE-2012-5153: Out-of-bounds stack access in v8. Credit to
+      Andreas Rossberg of the Chromium development community. 
+    - High CVE-2013-0829: Corruption of database metadata leading to
+      incorrect file access. Credit to Google Chrome Security Team (Jüri Aedla). 
+    - Low CVE-2013-0831: Possible path traversal from extension process.
+      Credit to Google Chrome Security Team (Tom Sepez). 
+    - [160380] Medium CVE-2013-0832: Use-after-free with printing. Credit to Google
+      Chrome Security Team (Cris Neckar). 
+    - Medium CVE-2013-0833: Out-of-bounds read with printing. Credit to
+      Google Chrome Security Team (Cris Neckar). 
+    - Medium CVE-2013-0834: Out-of-bounds read with glyph handling. Credit
+      to Google Chrome Security Team (Cris Neckar). 
+    - Low CVE-2013-0835: Browser crash with geolocation. Credit to Arthur
+      Gerkis. 
+    - High CVE-2013-0836: Crash in v8 garbage collection. Credit to Google
+      Chrome Security Team (Cris Neckar). 
+    - Medium CVE-2013-0837: Crash in extension tab handling. Credit to Tom
+      Nielsen. 
+    - Low CVE-2013-0838: Tighten permissions on shared memory
+      segments. Credit to Google Chrome Security Team (Chris Palmer). 
+    - High CVE-2012-5139: Use-after-free with visibility events.
+      Credit to Chamal de Silva.
+    - High CVE-2012-5140: Use-after-free in URL loader. Credit to
+      Chamal de Silva.
+    - Medium CVE-2012-5141: Limit Chromoting client plug-in instantiation.
+      Credit to Google Chrome Security Team (Jüri Aedla).
+    - Critical CVE-2012-5142: Crash in history navigation. Credit to Michal
+      Zalewski of Google Security Team.
+    - Medium CVE-2012-5143: Integer overflow in PPAPI image buffers. Credit
+      to Google Chrome Security Team (Cris Neckar).
+    - High CVE-2012-5144: Stack corruption in AAC decoding. Credit
+      to pawlkt.
+    - High CVE-2012-5138: Incorrect file path handling. Credit to Google
+      Chrome Security Team (Jüri Aedla).
+    - High CVE-2012-5137: Use-after-free in media source handling.
+      Credit to Pinkie Pie.
+    - High CVE-2012-5133: Use-after-free in SVG filters. Credit to
+      miaubiz.
+    - Medium CVE-2012-5130: Out-of-bounds read in Skia. Credit to
+      Atte Kettunen of OUSPG.
+    - Low CVE-2012-5132: Browser crash with chunked encoding. Credit to
+      Attila Szász.
+    - High CVE-2012-5134: Buffer underflow in libxml. Credit to Google
+      Chrome Security Team (Jüri Aedla).
+    - Medium CVE-2012-5135: Use-after-free with printing. Credit to Fermin
+      Serna of Google Security Team.
+    - Medium CVE-2012-5136: Bad cast in input element handling. Credit to
+      Google Chrome Security Team (Inferno).
+    - Medium CVE-2012-5127: Integer overflow leading to
+      out-of-bounds read in WebP handling. Credit to Phil Turnbull.
+    - [Linux 64-bit only] Medium CVE-2012-5120: Out-of-bounds array
+      access in v8. Credit to Atte Kettunen of OUSPG.
+    - High CVE-2012-5116: Use-after-free in SVG filter handling.
+      Credit to miaubiz.
+    - High CVE-2012-5121: Use-after-free in video layout. Credit to
+      Atte Kettunen of OUSPG.
+    - Low CVE-2012-5117: Inappropriate load of SVG subresource in img
+      context. Credit to Felix Gröbert of the Google Security Team.
+    - Medium CVE-2012-5119: Race condition in Pepper buffer handling.
+      Credit to Fermin Serna of the Google Security Team.
+    - Medium CVE-2012-5122: Bad cast in input handling. Credit to Google
+      Chrome Security Team (Inferno).
+    - Medium CVE-2012-5123: Out-of-bounds reads in Skia. Credit to
+      Google Chrome Security Team (Inferno).
+    - High CVE-2012-5124: Memory corruption in texture handling. Credit to
+      Al Patrick of the Chromium development community.
+    - Medium CVE-2012-5125: Use-after-free in extension tab handling.
+      Credit to Alexander Potapenko of the Chromium development community.
+    - Medium CVE-2012-5126: Use-after-free in plug-in placeholder handling.
+      Credit to Google Chrome Security Team (Inferno).
+    - High CVE-2012-5128: Bad write in v8. Credit to Google Chrome Security
+      Team (Cris Neckar).
+  * [574d76c] Override the lintian flag:
+    embedded-library usr/lib/chromium/libffmpegsumo.so: libavcodec
+  * [3105012] Updated changelog
+  * [ac9c032] Use explicit library dependencies instead of dlopen
+  * [1ad217c] Fixed CHANNELS_URL
+  * [7c2d359] Drop SCM revision from the version
+  * [ca31c0c] Install all chromium libs
+  * [167aea7] Use internal copy of libpng. This is necessary because with
+    system libpng render process is consuming 100% CPU
+    (see http://code.google.com/p/chromium/issues/detail?id=174603)
+  * [8742d82] debian/patches/pulse_ftbfs.patch: Fix FTBFS
+  * [9e76ec7] Refreshed patches
+  * [1c6f4c3] Use Debian api key
+  * [cdf5c74] Refreshed patches
+  * [ad9480c] Remove useless embedded copy of documentation from source
+    containing non DFSG-compliant material:
+    - src/native_client/toolchain/linux_x86/info
+    - src/native_client/toolchain/linux_x86/man
+    - src/native_client/toolchain/linux_x86/share/info
+    - src/native_client/toolchain/linux_x86/x86_64-nacl/share/info
+    - src/native_client/toolchain/linux_x86_newlib/info
+    - src/native_client/toolchain/linux_x86_newlib/man
+    - src/native_client/toolchain/linux_x86_newlib/share/info
+    (Closes: #695703)
+  * [31ea388] Fixed Homepage field.
+    Thanks to Dmitry Shachnev (Closes: #686561)
+  * [d509e07] Override the lintian flag: embedded-library usr/lib/chromium/chromium: libpng
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Wed, 06 Feb 2013 15:34:17 +0100
+
 chromium-browser (22.0.1229.94~r161065-3blankon1) rote-updates; urgency=low
 
   * New Uptream Release 
