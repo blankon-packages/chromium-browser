@@ -1,3 +1,128 @@
+chromium-browser (28.0.1500.71-2blankon1) suroboyo; urgency=low
+
+  * New Upstream Release 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Fri, 26 Jul 2013 16:40:04 +0700
+
+chromium-browser (28.0.1500.71-2) unstable; urgency=medium
+
+  * Disable armhf.
+  * Remove outdated patches.
+  * Eliminate special handling for old compiler versions.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 15 Jul 2013 18:40:47 +0000
+
+chromium-browser (28.0.1500.71-1) unstable; urgency=medium
+
+  [ Michael Gilbert ]
+  * New upstream stable release:
+    - Low CVE-2013-2867: Block pop-unders in various scenarios.
+    - High CVE-2013-2879: Confusion setting up sign-in and sync. Credit to
+      Andrey Labunets.
+    - Medium CVE-2013-2868: Incorrect sync of NPAPI extension component. Credit
+      to Andrey Labunets.
+    - Medium CVE-2013-2869: Out-of-bounds read in JPEG2000 handling. Credit to
+      Felix Groebert of Google Security Team.
+    - Critical CVE-2013-2870: Use-after-free with network sockets. Credit to
+      Collin Payne.
+    - Medium CVE-2013-2853: Man-in-the-middle attack against HTTP in SSL.
+      Credit to Antoine Delignat-Lavaud and Karthikeyan Bhargavan from Prosecco
+      at INRIA Paris.
+    - High CVE-2013-2871: Use-after-free in input handling. Credit to miaubiz.
+    - High CVE-2013-2873: Use-after-free in resource loading. Credit to
+      miaubiz.
+    - Medium CVE-2013-2875: Out-of-bounds-read in SVG. Credit to miaubiz.
+    - Medium CVE-2013-2876: Extensions permissions confusion with
+      interstitials.  Credit to Dev Akhawe.
+    - Low CVE-2013-2877: Out-of-bounds read in XML parsing. Credit to Aki Helin
+      of OUSPG.
+    - None: Remove the “viewsource” attribute on iframes. Credit to Collin
+      Jackson.
+    - Medium CVE-2013-2878: Out-of-bounds read in text handling. Credit to Atte
+      Kettunen of OUSPG.
+    - High CVE-2013-2880: Various fixes from internal audits, fuzzing and other
+      initiatives. Credit to Chrome 28 team.
+  * Install mksnapshot.
+
+  [ Shawn Landden ]
+  * Enable armhf.
+  * Build with system libwebp when version >= 0.3.0.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 12 Jul 2013 15:19:18 +0000
+
+chromium-browser (27.0.1453.110-2) unstable; urgency=low
+
+  [ Michael Gilbert ]
+  * Use default gcc.
+  * Enable verbose build.
+  * Support gcc 4.8 (closes: #701256).
+  * Disable pie hardening flag due to ffmpeg linking issue.
+
+  [ Giuseppe Iuculano ]
+  * Remove hardening-wrapper and switch to dpkg-buildflags.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 07 Jul 2013 20:06:05 +0000
+
+chromium-browser (27.0.1453.110-1) unstable; urgency=low
+
+  * New stable release:
+    - Medium CVE-2013-2855: Memory corruption in dev tools API.
+      Credit to "daniel.zulla".
+    - High CVE-2013-2856: Use-after-free in input handling. Credit
+      to miaubiz.
+    - High CVE-2013-2857: Use-after-free in image handling. Credit
+      to miaubiz.
+    - High CVE-2013-2858: Use-after-free in HTML5 Audio. Credit to
+      "cdel921".
+    - High CVE-2013-2859: Cross-origin namespace pollution. Credit
+      to "bobbyholley".
+    - High CVE-2013-2860: Use-after-free with workers accessing
+      database APIs. Credit to Collin Payne.
+    - High CVE-2013-2861: Use-after-free with SVG. Credit to
+      miaubiz.
+    - High CVE-2013-2862: Memory corruption in Skia GPU handling.
+      Credit to Atte Kettunen of OUSPG.
+    - Critical CVE-2013-2863: Memory corruption in SSL socket handling.
+      Credit to Sebastien Marchand of the Chromium development community.
+    - High CVE-2013-2864: Bad free in PDF viewer. Credit to Mateusz
+      Jurczyk, with contributions by Gynvael Coldwind, both from Google Security
+      Team.
+    - High CVE-2013-2865: Various fixes from internal audits, fuzzing and
+      other initiatives.
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Wed, 05 Jun 2013 17:00:28 +0200
+
+chromium-browser (27.0.1453.93-1) unstable; urgency=low
+
+  * New stable release:
+    - High CVE-2013-2837: Use-after-free in SVG. Credit to Sławomir Błażek.
+    - Medium CVE-2013-2838: Out-of-bounds read in v8. Credit to Christian
+      Holler.
+    - High CVE-2013-2839: Bad cast in clipboard handling. Credit to Jon of MWR
+      InfoSecurity.
+    - High CVE-2013-2840: Use-after-free in media loader. Credit to Nils of
+      MWR InfoSecurity.
+    - High CVE-2013-2841: Use-after-free in Pepper resource handling. Credit
+      to Chamal de Silva.
+    - High CVE-2013-2842: Use-after-free in widget handling. Credit to Cyril
+      Cattiaux.
+    - High CVE-2013-2843: Use-after-free in speech handling. Credit to Khalil
+      Zhani.
+    - High CVE-2013-2844: Use-after-free in style resolution. Credit to Sachin
+      Shinde (@cons0ul).
+    - High CVE-2013-2845: Memory safety issues in Web Audio. Credit to Atte
+      Kettunen of OUSPG.
+    - High CVE-2013-2846: Use-after-free in media loader. Credit to Chamal de
+      Silva.
+    - High CVE-2013-2847: Use-after-free race condition with workers. Credit
+      to Collin Payne.
+    - Medium CVE-2013-2848: Possible data extraction with XSS Auditor. Credit
+      to Egor Homakov.
+    - Low CVE-2013-2849: Possible XSS with drag+drop or copy+paste. Credit to
+      Mario Heiderich.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 22 May 2013 03:03:49 +0000
+
 chromium-browser (26.0.1410.43-1blankon1) rote-updates; urgency=low
 
   * New Upstream Release 
