@@ -1,3 +1,9 @@
+chromium-browser (28.0.1500.95-3blankon2) suroboyo; urgency=low
+
+  * Change initial_bookmarsk.html to BlankOn
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Tue, 13 Aug 2013 00:35:09 +0700
+
 chromium-browser (28.0.1500.95-3blankon1) suroboyo; urgency=low
 
   * New Upstream Release 
