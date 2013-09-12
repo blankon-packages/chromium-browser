@@ -1,3 +1,60 @@
+chromium-browser (29.0.1547.57-3blankon1) suroboyo; urgency=low
+
+  * New Upstream Release 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Thu, 12 Sep 2013 19:21:55 +0700
+
+chromium-browser (29.0.1547.57-3) unstable; urgency=medium
+
+  * Drop transitional packages (closes: #684369).
+  * Fix another copyright file syntax error.
+  * Remove libav build dependencies.
+  * Fix lintian override syntax.
+  * Fix version control URL.
+  * Use system vpx.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 27 Aug 2013 01:01:35 +0000
+
+chromium-browser (29.0.1547.57-2) unstable; urgency=medium
+
+  * Mark chromium-inspector as multi-arch: foreign (closes: #695229).
+  * Use system libpng (closes: #699918).
+  * Fix copyright file syntax error.
+  * Drop implicit g++ dependency.
+  * Add some lintian overrides.
+  * Update my email address.
+  * Remove unsafe symlink.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 25 Aug 2013 02:15:35 +0000
+
+chromium-browser (29.0.1547.57-1) unstable; urgency=medium
+
+  [ Michael Gilbert ]
+  * New upstream stable release:
+    - High CVE-2013-2900: Incomplete path sanitization in file handling. Credit
+      to Krystian Bigaj.
+    - Low CVE-2013-2905: Information leak via overly broad permissions on
+      shared memory files. Credit to Christian Jaeger.
+    - High CVE-2013-2901: Integer overflow in ANGLE. Credit to Alex Chapman.
+    - High CVE-2013-2902: Use after free in XSLT. Credit to cloudfuzzer.
+    - High CVE-2013-2903: Use after free in media element. Credit to
+      cloudfuzzer.
+    - High CVE-2013-2904: Use after free in document parsing. Credit to
+      cloudfuzzer.
+    - CVE-2013-2887: Various fixes from internal audits, fuzzing and other
+      initiatives (Chrome 29).
+  * Remove unused webkit layout tests (closes: 720446).
+  * Use source package name for get-orig-source rule.
+  * Remove gfdl documentation (closes: #708860).
+  * Build-depend on git.
+  
+  [ Shawn Landden ]
+  * New standards version.
+  * Use canonical VCS url.
+  * Always use system includes rather than ones of a chroot.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 24 Aug 2013 20:14:52 +0000
+
 chromium-browser (28.0.1500.95-3blankon2) suroboyo; urgency=low
 
   * Change initial_bookmarsk.html to BlankOn
