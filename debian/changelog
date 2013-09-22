@@ -1,5 +1,35 @@
 chromium-browser (29.0.1547.57-3blankon1) suroboyo; urgency=low
 
+  * New Upstream Release
+  * Rebranding bookmark_initial.html
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 22 Sep 2013 20:44:52 +0700
+
+chromium-browser (29.0.1547.57-3) unstable; urgency=medium
+
+  * Drop transitional packages (closes: #684369).
+  * Fix another copyright file syntax error.
+  * Remove libav build dependencies.
+  * Fix lintian override syntax.
+  * Fix version control URL.
+  * Use system vpx.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 27 Aug 2013 01:01:35 +0000
+
+chromium-browser (29.0.1547.57-2) unstable; urgency=medium
+
+  * Mark chromium-inspector as multi-arch: foreign (closes: #695229).
+  * Use system libpng (closes: #699918).
+  * Fix copyright file syntax error.
+  * Drop implicit g++ dependency.
+  * Add some lintian overrides.
+  * Update my email address.
+  * Remove unsafe symlink.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 25 Aug 2013 02:15:35 +0000
+
+chromium-browser (29.0.1547.57-3blankon1) suroboyo; urgency=low
+
   * New Upstream Release 
 
  -- Rahman Yusri Aftian <aftian@di.blankon.in>  Thu, 12 Sep 2013 19:21:55 +0700
