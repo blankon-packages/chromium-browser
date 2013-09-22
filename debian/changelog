@@ -1,8 +1,13 @@
+chromium-browser (29.0.1547.57-3blankon2) suroboyo; urgency=low
+
+  * Rebranding initial_bookmarks.html
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 22 Sep 2013 20:49:39 +0700
+
 chromium-browser (29.0.1547.57-3blankon1) suroboyo; urgency=low
 
   * New Upstream Release
-  * Rebranding bookmark_initial.html
-
+  
  -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 22 Sep 2013 20:44:52 +0700
 
 chromium-browser (29.0.1547.57-3) unstable; urgency=medium
