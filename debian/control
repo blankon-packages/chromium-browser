@@ -1,7 +1,7 @@
 Source: chromium-browser
 Section: web
 Priority: optional
-Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
+Miantainer: BlankOn Developers <blankon-dev@googlegroups.com>
 XSBC-Original-Maintainer: Debian Chromium Maintainers <pkg-chromium-maint@lists.alioth.debian.org>
 Uploaders:
  Giuseppe Iuculano <iuculano@debian.org>,
@@ -26,12 +26,11 @@ Build-Depends:
  xvfb,
  x11-apps,
  xfonts-base,
- ttf-kochi-gothic,
- ttf-kochi-mincho,
+ fonts-ipafont-gothic,
+ fonts-ipafont-mincho,
  libjpeg-dev,
  libpng-dev,
  libbz2-dev,
- zlib1g-dev,
  libxml2-dev,
  libxslt1-dev,
  lzma-dev,
@@ -45,12 +44,10 @@ Build-Depends:
  libgl1-mesa-dev,
  libglu1-mesa-dev,
  libxss-dev,
- libpango1.0-dev,
  libglib2.0-dev,
  libgtk2.0-dev,
  libdbus-glib-1-dev,
  libgconf2-dev,
- libicu-dev (>= 4.2.1),
  libevent-dev (>= 1.4.13),
  yasm,
  libprotobuf-dev,
@@ -134,6 +131,7 @@ Description: Debugging symbols for the chromium web browser
 
 Package: chromium-l10n
 Architecture: all
+Section: localization
 Depends:
  ${misc:Depends},
  chromium (>= ${source:Version}),
