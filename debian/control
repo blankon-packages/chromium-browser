@@ -1,7 +1,7 @@
 Source: chromium-browser
 Section: web
 Priority: optional
-Miantainer: BlankOn Developers <blankon-dev@googlegroups.com>
+Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
 XSBC-Original-Maintainer: Debian Chromium Maintainers <pkg-chromium-maint@lists.alioth.debian.org>
 Uploaders:
  Giuseppe Iuculano <iuculano@debian.org>,
