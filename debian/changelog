@@ -1,3 +1,15 @@
+chromium-browser (30.0.1599.101-3blankon1) suroboyo; urgency=low
+
+  * New Upstream Updates 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 10 Nov 2013 07:53:42 +0700
+
+chromium-browser (30.0.1599.101-3) unstable; urgency=medium
+
+  * Fix sandbox installation path (closes: #728823).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 07 Nov 2013 04:24:55 +0000
+
 chromium-browser (30.0.1599.101-2blankon1) suroboyo; urgency=low
 
   * New Upstream Updates
