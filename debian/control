@@ -76,8 +76,17 @@ Build-Depends:
  libssl-dev,
  libpci-dev,
  libcap-dev,
- libdrm-dev
-Standards-Version: 3.9.4
+ libdrm-dev,
+ libjs-jquery,
+ libjs-excanvas,
+ libjs-jquery-tablesorter,
+ libjs-jquery-flot | libjs-flot,
+Built-Using:
+ libjs-jquery,
+ libjs-excanvas,
+ libjs-jquery-flot,
+ libjs-jquery-tablesorter,
+Standards-Version: 3.9.5
 
 Package: chromium
 Architecture: i386 amd64
@@ -164,3 +173,15 @@ Description: page inspector for the chromium browser
  .
  This package contains 'inspector', allowing web developers to inspect any
  element of a web page at runtime (HTML, JavaScript, CSS, ..).
+
+Package: chromedriver
+Architecture: i386 amd64
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ chromium (= ${binary:Version}),
+Description: WebDriver driver for chromium browser
+ Chromedriver serves as a bridge between the chromium web browser and the
+ selenium webdriver.
+ .
+ See http://code.google.com/p/selenium/wiki/ChromeDriver for details.
