@@ -1,8 +1,8 @@
-chromium-browser (33.0.1750.152-1blankon1) suroboyo; urgency=low
+chromium-browser (33.0.1750.152-1blankon1) tambora; urgency=low
 
   * New Upstream Release 
 
- -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 23 Mar 2014 11:22:27 +0700
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 23 Mar 2014 11:23:59 +0700
 
 chromium-browser (33.0.1750.152-1) unstable; urgency=high
 
