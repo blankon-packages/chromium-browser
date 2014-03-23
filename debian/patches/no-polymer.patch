@@ -1,0 +1,3 @@
+description: don't use sourceless polymer.js.min (bug #735355)
+author: Michael Gilbert <mgilbert@debian.org>
+
