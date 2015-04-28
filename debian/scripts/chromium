@@ -8,7 +8,6 @@
 
 APPNAME=chromium
 LIBDIR=/usr/lib/chromium
-EXTRALIB=/usr/lib/xulrunner-1.9.1
 GDB=/usr/bin/gdb
 BUILD_DIST="@BUILD_DIST@"
 
@@ -24,39 +23,29 @@ usage () {
   echo " See 'man chromium' for more details"
 }
 
-if [ -f /etc/$APPNAME/default ] ; then
-  . /etc/$APPNAME/default
+nosse2="\
+The hardware on this system lacks support for the sse2 instruction set.
+The upstream chromium project no longer supports this configuration.
+For more information, please read and possibly provide input to their
+bug tracking system at http://crbug.com/348761."
+
+# Check whether this system supports sse2
+if test -z "$(grep sse2 /proc/cpuinfo)"; then
+  xmessage "$nosse2"
+  exit 1
 fi
 
-# Prefer user defined CHROMIUM_USER_FLAGS (fron env) over system
-# default CHROMIUM_FLAGS (from /etc/$APPNAME/default)
-CHROMIUM_FLAGS=${CHROMIUM_USER_FLAGS:-"$CHROMIUM_FLAGS"}
-
-# FFmpeg needs to know where its libs are located
-if [ "Z$LD_LIBRARY_PATH" != Z ] ; then
-  LD_LIBRARY_PATH=$LIBDIR:$EXTRALIB:$LD_LIBRARY_PATH
-else
-  LD_LIBRARY_PATH=$LIBDIR:$EXTRALIB
-fi
-export LD_LIBRARY_PATH
-
-# For the Default Browser detection to work, we need to give access
-# to xdg-settings. Also set CHROME_WRAPPER in case xdg-settings is
-# not able to do anything useful
-export PATH="$LIBDIR:$PATH"
-export CHROME_WRAPPER="`readlink -f "$0"`"
-export CHROME_DESKTOP=$APPNAME.desktop
-
-#DIST=`lsb_release -si`
-#RELEASE=`lsb_release -sr`
-DIST=BlankOn
-RELEASE=`cat /etc/debian_version`
+# Source additional settings
+for file in /etc/chromium.d/*; do
+  test $file = /etc/chromium.d/README || expr $file : .*\.dpkg > /dev/null || . $file
+done
 
 # Set CHROME_VERSION_EXTRA visible in the About dialog and in about:version
-if [ "$DIST $RELEASE" = "$BUILD_DIST" ] ; then
-  export CHROME_VERSION_EXTRA="$DIST $RELEASE"
+DIST="Debian `cat /etc/debian_version`"
+if [ "$DIST" = "$BUILD_DIST" ] ; then
+  export CHROME_VERSION_EXTRA="$DIST"
 else
-  export CHROME_VERSION_EXTRA="Built on $BUILD_DIST, running on $DIST $RELEASE"
+  export CHROME_VERSION_EXTRA="Built on $BUILD_DIST, running on $DIST"
 fi
 
 want_debug=0
@@ -97,7 +86,6 @@ if [ $want_debug -eq 1 ] ; then
   echo "#     LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
   echo "#                PATH=$PATH"
   echo "#            GTK_PATH=$GTK_PATH"
-  echo "# CHROMIUM_USER_FLAGS=$CHROMIUM_USER_FLAGS"
   echo "#      CHROMIUM_FLAGS=$CHROMIUM_FLAGS"
   echo "$GDB $LIBDIR/$APPNAME -x $tmpfile"
   $GDB "$LIBDIR/$APPNAME" -x $tmpfile
@@ -114,4 +102,3 @@ else
     rm -rf $TEMP_PROFILE
   fi
 fi
-
