@@ -1,3 +1,162 @@
+chromium-browser (44.0.2403.107-1blankon1) tambora; urgency=medium
+
+  * New Upstream release 
+
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Thu, 30 Jul 2015 23:33:57 +0700
+
+chromium-browser (44.0.2403.107-1) unstable; urgency=medium
+
+  * New upstream stable release.
+  * More updates to debian/copyright.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 26 Jul 2015 01:41:55 +0000
+
+chromium-browser (44.0.2403.89-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-1270: Uninitialized memory read in ICU. Credit to Atte Kettunen.
+    - CVE-2015-1271: Heap-buffer-overflow in pdfium. Credit to cloudfuzzer.
+    - CVE-2015-1272: Use-after-free related to unexpected GPU process
+      termination. Credit to Chamal de Silva.
+    - CVE-2015-1273: Heap-buffer-overflow in pdfium. Credit to makosoft.
+    - CVE-2015-1274: Settings allowed executable files to run immediately after
+      download. Credit to  andrewm.bpi.
+    - CVE-2015-1275: UXSS in Chrome for Android. Credit to WangTao(neobyte).
+    - CVE-2015-1276: Use-after-free in IndexedDB. Credit to Collin Payne.
+    - CVE-2015-1277: Use-after-free in accessibility. Credit to SkyLined.
+    - CVE-2015-1278: URL spoofing using pdf files. Credit to Chamal de Silva.
+    - CVE-2015-1279: Heap-buffer-overflow in pdfium. Credit to mlafon.
+    - CVE-2015-1280: Memory corruption in skia. Credit to cloudfuzzer.
+    - CVE-2015-1281: CSP bypass. Credit to Masato Kinugawa.
+    - CVE-2015-1282: Use-after-free in pdfium. Credit to Chamal de Silva.
+    - CVE-2015-1283: Heap-buffer-overflow in expat. Credit to Huzaifa
+      Sidhpurwala.
+    - CVE-2015-1284: Use-after-free in blink. Credit to Atte Kettunen.
+    - CVE-2015-1285: Information leak in XSS auditor. Credit to gazheyes.
+    - CVE-2015-1286: UXSS in blink. Credit to anonymous.
+    - CVE-2015-1287: SOP bypass with CSS. Credit to filedescriptor.
+    - CVE-2015-1288: Spell checking dictionaries fetched over HTTP. Credit to
+      Mike Ruddy.
+    - CVE-2015-1289: Various fixes from internal audits, fuzzing and other
+      initiatives.
+  * Remove hotword patch, now disabled by default upstream.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 21 Jul 2015 22:33:06 +0000
+
+chromium-browser (43.0.2357.130-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2015-1266: Scheme validation error in WebUI. Credit to anonymous.
+    - CVE-2015-1268: Cross-origin bypass in Blink. Credit to Mariusz Mlynski.
+    - CVE-2015-1267: Cross-origin bypass in Blink. Credit to anonymous.
+    - CVE-2015-1269: Normalization error in HSTS/HPKP preload list. Credit to
+      Mike Ruddy.
+  * Don't build the Google Now extension.
+  * More updates to debian/copyright.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 23 Jun 2015 21:43:54 +0000
+
+chromium-browser (43.0.2357.124-3) unstable; urgency=medium
+
+  * Fix syntax error in default-flags (closes: #789310).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 19 Jun 2015 22:04:28 +0000
+
+chromium-browser (43.0.2357.124-2) unstable; urgency=medium
+
+  * More updates to debian/copyright.
+  * Disable all external component loading.
+  * Set flag to avoid hidden items in the about:extensions dialog.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 19 Jun 2015 05:31:48 +0000
+
+chromium-browser (43.0.2357.124-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Disable wallet extension.
+  * Remove more sourceless files.
+  * Remove no longer files included from debian/copright.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 17 Jun 2015 03:00:44 +0000
+
+chromium-browser (43.0.2357.81-1) unstable; urgency=medium
+
+  * New upstream release fixing missing icon (closes: #786490).
+  * Disable hotword (closes: #786909).
+  * Remove some sourceless files.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Mon, 15 Jun 2015 04:04:34 +0000
+
+chromium-browser (43.0.2357.65-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-1252: Sandbox escape in Chrome. Credit to anonymous.
+    - CVE-2015-1253: Cross-origin bypass in DOM. Credit to anonymous.
+    - CVE-2015-1254: Cross-origin bypass in Editing. Credit to
+      armin@rawsec.net.
+    - CVE-2015-1255: Use-after-free in WebAudio. Credit to Khalil Zhani.
+    - CVE-2015-1256: Use-after-free in SVG. Credit to Atte Kettunen.
+    - CVE-2015-1251: Use-after-free in Speech. Credit to SkyLined.
+    - CVE-2015-1257: Container-overflow in SVG. Credit to miaubiz.
+    - CVE-2015-1258: Negative-size parameter in Libvpx.  Credit to cloudfuzzer
+    - CVE-2015-1259: Uninitialized value in PDFium. Credit to Atte Kettunen.
+    - CVE-2015-1260: Use-after-free in WebRTC. Credit to Khalil Zhani.
+    - CVE-2015-1261: URL bar spoofing. Credit to Juho Nurminen.
+    - CVE-2015-1262: Uninitialized value in Blink. Credit to miaubiz.
+    - CVE-2015-1263: Insecure download of spellcheck dictionary.  Credit to
+      Mike Ruddy.
+    - CVE-2015-1264: Cross-site scripting in bookmarks. Credit to K0r3Ph1L.
+    - Fix for gzip file downloading (closes: #677948).
+    - Fix for bookmark navigation (closes: #756211).
+  * Enable HiDPI (closes: #763421).
+  * Make chromium-l10n binnmuable.
+  * Fix Built-Using fields.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 09 May 2015 22:37:06 +0000
+
+chromium-browser (42.0.2311.135-2) unstable; urgency=medium
+
+  * Remove src/ prefix in debian/copyright.
+  * Fix path to default configuration files.
+  * Describe omnibox search in README.debian (closes: 781591).
+  * Fix application name in the launcher script (closes: #783858).
+  * Set CHROME_WRAPPER to /usr/bin/chromium by default (closes: #783097).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 09 May 2015 14:53:34 +0000
+
+chromium-browser (42.0.2311.135-1) unstable; urgency=medium
+
+  [ Michael Gilbert ]
+  * Remove some unneeded files from the upstream tarball.
+  * Move default configuration files to /usr/share/chromium.
+  * New upstream stable release:
+    - CVE-2015-1243: Use-after-free in DOM. Credit to Saif El-Sherei.
+    - CVE-2015-1250: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+  [ Shawn Landden ]
+  * Suppress first run welcome page.
+  * Turn off safebrowsing.
+  * Turn off pinging Google on 404 and other HTTP errors.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 30 Apr 2015 01:08:53 +0000
+
+chromium-browser (42.0.2311.90-2) unstable; urgency=medium
+
+  * Update debian/copyright.
+  * Drop some unused patches.
+  * Drop chromium-inspector package.
+  * Remove Giuseppe from the uploaders.
+    - Many thanks for the prior contributions.
+  * Fix built on text (closes: #782052).
+  * Fix path to master_preferences (closes: #777708).
+  * Disable default browser warning (closes: #777265).
+  * Conflict with libgl1-mesa-swx11 (closes: #776388).
+  * Add MHTML mimetype to chromium.desktop (closes: #769039).
+  * Tighten chromium-l10n versioned dependency (closes: #781505).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 26 Apr 2015 18:49:52 +0000
+
 chromium-browser (42.0.2311.90-2blankon1) tambora; urgency=low
 
   * New Upstream Release.
