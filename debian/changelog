@@ -1,3 +1,503 @@
+chromium-browser (53.0.2785.143-1blankon1) tambora; urgency=medium
+
+  * New Upstream Release 
+
+ -- Rahman Yusri Aftian <aftian@blankon.id>  Thu, 03 Nov 2016 08:55:28 +0700
+
+chromium-browser (53.0.2785.143-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-5177: Use after free in V8. Credit to Anonymous
+    - CVE-2016-5178: Various fixes from internal audits, fuzzing and other
+      initiatives.
+  * Change StartupWMClass in the desktop file to chromium (closes: #813079).
+  * Support building with cups 2.2 (closes: #839377).
+  * Update debian/copyright.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 01 Oct 2016 11:08:42 +0000
+
+chromium-browser (53.0.2785.113-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-5170: Use after free in Blink. Credit to Anonymous
+    - CVE-2016-5171: Use after free in Blink. Credit to Anonymous
+    - CVE-2016-5172: Arbitrary Memory Read in v8. Credit to Choongwoo Han
+    - CVE-2016-5173: Extension resource access. Credit to Anonymous
+    - CVE-2016-5174: Popup not correctly suppressed. Credit to Andrey Kovalev
+    - CVE-2016-5175: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 13 Sep 2016 23:12:03 +0000
+
+chromium-browser (53.0.2785.92-3) unstable; urgency=medium
+
+  * Add -fno-delete-null-pointer checks to the build flags (closes: #833501).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 11 Sep 2016 14:47:55 +0000
+
+chromium-browser (53.0.2785.92-2) unstable; urgency=medium
+
+  * Build with gcc 6 (closes: #835943).
+  * Add versioned harfbuzz dependency (closes: #833953).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 06 Sep 2016 00:53:14 +0000
+
+chromium-browser (53.0.2785.92-1) unstable; urgency=medium
+
+  * New upstream stable release.
+  * Support building with glibc 2.24 (closes: #836611).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 04 Sep 2016 19:33:10 +0000
+
+chromium-browser (53.0.2785.89-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-5147: Universal XSS in Blink. Credit to anonymous
+    - CVE-2016-5148: Universal XSS in Blink. Credit to anonymous
+    - CVE-2016-5149: Script injection in extensions. Credit to Max Justicz
+    - CVE-2016-5150: Use after free in Blink. Credit to anonymous
+    - CVE-2016-5151: Use after free in PDFium. Credit to anonymous
+    - CVE-2016-5152: Heap overflow in PDFium. Credit to GiWan Go of Stealien
+    - CVE-2016-5153: Use after destruction in Blink. Credit to Atte Kettunen
+    - CVE-2016-5154: Heap overflow in PDFium. Credit to anonymous
+    - CVE-2016-5155: Address bar spoofing. Credit to anonymous
+    - CVE-2016-5156: Use after free in event bindings. Credit to jinmo123
+    - CVE-2016-5157: Heap overflow in PDFium. Credit to anonymous
+    - CVE-2016-5158: Heap overflow in PDFium. Credit to GiWan Go
+    - CVE-2016-5159: Heap overflow in PDFium. Credit to GiWan Go
+    - CVE-2016-5160: Extensions web accessible resources bypass. Credit to
+      @l33terally
+    - CVE-2016-5161: Type confusion in Blink.
+    - CVE-2016-5162: Extensions web accessible resources bypass. Credit to
+      Nicolas Golubovic
+    - CVE-2016-5163: Address bar spoofing. Credit to Rafay Baloch
+    - CVE-2016-5164: Universal XSS using DevTools. Credit to anonymous
+    - CVE-2016-5165: Script injection in DevTools. Credit to Gregory Panakkal
+    - CVE-2016-5166: SMB Relay Attack via Save Page As. Credit to Gregory
+      Panakkal
+    - CVE-2016-5167: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 03 Sep 2016 16:30:44 +0000
+
+chromium-browser (52.0.2743.116-2) unstable; urgency=medium
+
+  * Fix syntax error in debian/copyright.
+  * Include compiler info in the build log.
+  * Add information about debugging to README.debian.
+  * Build with gcc 5 during the gcc 6 transition (closes: #833501).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 07 Aug 2016 01:05:40 +0000
+
+chromium-browser (52.0.2743.116-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-5141 Address bar spoofing. Credit to Sergey Glazunov
+    - CVE-2016-5142 Use-after-free in Blink. Credit to Sergey Glazunov
+    - CVE-2016-5139 Heap overflow in pdfium. Credit to GiWan Go
+    - CVE-2016-5140 Heap overflow in pdfium. Credit to Ke Liu
+    - CVE-2016-5145 Same origin bypass for images in Blink. Credit to Sergey
+      Glazunov
+    - CVE-2016-5143 Parameter sanitization failure in DevTools. Credit to
+      Gregory Panakkal
+    - CVE-2016-5144 Parameter sanitization failure in DevTools. Credit to
+      Gregory Panakkal
+    - CVE-2016-5146: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 04 Aug 2016 13:01:42 +0000
+
+chromium-browser (52.0.2743.82-4) unstable; urgency=medium
+
+  * Remove menu file.
+  * Build with fastbuild=2.
+  * Disable background networking features.
+  * Link against system harfbuzz library again.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 30 Jul 2016 21:25:30 +0000
+
+chromium-browser (52.0.2743.82-3) unstable; urgency=medium
+
+  * Fix a few lintian warnings.
+  * Use gtk3 backend instead of gtk2.
+  * Launch as a single process when debugging to get useful symbol info.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 30 Jul 2016 04:07:46 +0000
+
+chromium-browser (52.0.2743.82-2) unstable; urgency=medium
+
+  * Bump standards version.
+  * Drop no longer needed speechd patch.
+  * Build complete debugging symbols again.
+  * Link against libusb 1.0 (closes: #810403).
+  * Fix path to master_preferences (closes: #830274).
+  * Add an explicit dependency on libnettle6 (closes: #832125).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 24 Jul 2016 22:02:56 +0000
+
+chromium-browser (52.0.2743.82-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-1704: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - CVE-2016-1705: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - CVE-2016-1706: Sandbox escape in PPAPI. Credit to Pinkie Pie
+    - CVE-2016-1707: URL spoofing on iOS. Credit to xisigr.
+    - CVE-2016-1708: Use-after-free in Extensions. Credit to Adam Varsan
+    - CVE-2016-1709: Heap-buffer-overflow in sfntly. Credit to ChenQin.
+    - CVE-2016-1710: Same-origin bypass in Blink. Credit to Mariusz Mlynski
+    - CVE-2016-1711: Same-origin bypass in Blink. Credit to Mariusz Mlynski
+    - CVE-2016-5127: Use-after-free in Blink. Credit to cloudfuzzer
+    - CVE-2016-5128: Same-origin bypass in V8. Credit to Anonymous
+    - CVE-2016-5129: Memory corruption in V8. Credit to Jeonghoon Shin
+    - CVE-2016-5130: URL spoofing. Credit to Wadih Matar
+    - CVE-2016-5131: Use-after-free in libxml. Credit to Nick Wellnhofer
+    - CVE-2016-5132: Limited same-origin bypass in Service Workers. Credit to
+      Ben Kelly
+    - CVE-2016-5133: Origin confusion in proxy authentication. Credit to Patch
+      Eudor
+    - CVE-2016-5134: URL leakage via PAC script. Credit to Paul Stone
+    - CVE-2016-5135: Content-Security-Policy bypass. Credit to ShenYeYinJiu
+    - CVE-2016-5136: Use after free in extensions. Credit to Rob Wu
+    - CVE-2016-5137: History sniffing with HSTS and CSP. Credit to Xiaoyin Liu
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 23 Jul 2016 03:56:18 +0000
+
+chromium-browser (51.0.2704.79-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-1696: Cross-origin bypass in Extension bindings. Credit to
+      anonymous.
+    - CVE-2016-1697: Cross-origin bypass in Blink. Credit to
+      Mariusz Mlynski.
+    - CVE-2016-1698: Information leak in Extension bindings.  Credit to
+      Rob Wu.
+    - CVE-2016-1699: Parameter sanitization failure in DevTools. Credit to
+      Gregory Panakkal.
+    - CVE-2016-1700: Use-after-free in Extensions. Credit to Rob Wu.
+    - CVE-2016-1701: Use-after-free in Autofill. Credit to Rob Wu.
+    - CVE-2016-1702: Out-of-bounds read in Skia. Credit to cloudfuzzer.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 02 Jun 2016 23:55:13 +0000
+
+chromium-browser (51.0.2704.63-2) unstable; urgency=medium
+
+  * Fix libspeechd build error.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 29 May 2016 01:42:46 +0000
+
+chromium-browser (51.0.2704.63-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-1667: Same origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2016-1668: Same origin bypass in Blink V8 bindings. Credit to
+      Mariusz Mlynski.
+    - CVE-2016-1669: Buffer overflow in V8. Credit to Choongwoo Han.
+    - CVE-2016-1670: Race condition in loader. Credit to anonymous.
+    - CVE-2016-1672: Cross-origin bypass in extension bindings. Credit to
+      Mariusz Mlynski.
+    - CVE-2016-1673: Cross-origin bypass in Blink. Credit to Mariusz Mlynski.
+    - CVE-2016-1674: Cross-origin bypass in extensions. Credit to Mariusz
+      Mlynski.
+    - CVE-2016-1675: Cross-origin bypass in Blink. Credit to Mariusz Mlynski.
+    - CVE-2016-1676: Cross-origin bypass in extension bindings. Credit to Rob
+      Wu.
+    - CVE-2016-1677: Type confusion in V8. Credit to Guang Gong.
+    - CVE-2016-1678: Heap overflow in V8. Credit to Christian Holler.
+    - CVE-2016-1679: Heap use-after-free in V8 bindings. Credit to Rob Wu.
+    - CVE-2016-1680: Heap use-after-free in Skia. Credit to Atte Kettunen.
+    - CVE-2016-1681: Heap overflow in PDFium. Credit to Aleksandar Nikolic.
+    - CVE-2016-1682: CSP bypass for ServiceWorker. Credit to KingstonTime.
+    - CVE-2016-1683: Out-of-bounds access in libxslt. Credit to Nicolas
+      Gregoire.
+    - CVE-2016-1684: Integer overflow in libxslt. Credit to Nicolas Gregoire.
+    - CVE-2016-1685: Out-of-bounds read in PDFium. Credit to Ke Liu.
+    - CVE-2016-1686: Out-of-bounds read in PDFium. Credit to Ke Liu.
+    - CVE-2016-1687: Information leak in extensions. Credit to Rob Wu.
+    - CVE-2016-1688: Out-of-bounds read in V8. Credit to Max Korenko.
+    - CVE-2016-1689: Heap buffer overflow in media. Credit to Atte Kettunen.
+    - CVE-2016-1690: Heap use-after-free in Autofill. Credit to Rob Wu.
+    - CVE-2016-1691: Heap buffer-overflow in Skia. Credit to Atte Kettunen.
+    - CVE-2016-1692: Limited cross-origin bypass in ServiceWorker. Credit to
+      Til Jasper Ullrich.
+    - CVE-2016-1693: HTTP Download of Software Removal Tool. Credit to Khalil
+      Zhani.
+    - CVE-2016-1694: HPKP pins removed on cache clearance. Credit to Ryan
+      Lester and Bryant Zadegan.
+    - CVE-2016-1695: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 27 May 2016 01:52:42 +0000
+
+chromium-browser (50.0.2661.94-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-1660: Out-of-bounds write in Blink. Credit to Atte Kettunen.
+    - CVE-2016-1661: Memory corruption in cross-process frames. Credit to Wadih
+      Matar.
+    - CVE-2016-1662: Use-after-free in extensions. Credit to Rob Wu.
+    - CVE-2016-1663: Use-after-free in Blink’s V8 bindings. Credit to anonymous.
+    - CVE-2016-1664: Address bar spoofing. Credit to Wadih Matar.
+    - CVE-2016-1665: Information leak in V8. Credit to gksgudtjr456.
+    - CVE-2016-1666: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 30 Apr 2016 03:39:44 +0000
+
+chromium-browser (50.0.2661.75-2) unstable; urgency=medium
+
+  * Fix problem with linking to ffmpeg (closes: #821154).
+    - Thanks to Sebastian Ramacher.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 23 Apr 2016 00:55:40 +0000
+
+chromium-browser (50.0.2661.75-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-1652: Universal XSS in extension bindings. Credit to anonymous.
+    - CVE-2016-1653: Out-of-bounds write in V8. Credit to Choongwoo Han.
+    - CVE-2016-1651: Out-of-bounds read in Pdfium JPEG2000 decoding.
+    - CVE-2016-1654: Uninitialized memory read in media.  Credit to Atte
+      Kettunen.
+    - CVE-2016-1655: Use-after-free related to extensions.  Credit to Rob Wu.
+    - CVE-2016-1657: Address bar spoofing. Credit to Luan Herrera.
+    - CVE-2016-1658: Potential leak of sensitive information to malicious
+      extensions. Credit to Antonio Sanso.
+    - CVE-2015-1659: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 14 Apr 2016 01:04:58 +0000
+
+chromium-browser (49.0.2623.108-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-1646: Out-of-bounds read in V8. Credit to Wen Xu.
+    - CVE-2016-1647: Use-after-free in Navigation. Credit to anonymous.
+    - CVE-2016-1648: Use-after-free in Extensions. Credit to anonymous.
+    - CVE-2016-1649: Buffer overflow in libANGLE. Credit to lokihardt.
+    - CVE-2016-1650: Various fixes from internal audits, fuzzing and other
+      initiatives.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 12 Mar 2016 20:12:03 +0000
+
+chromium-browser (49.0.2623.87-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2016-1643: Type confusion in Blink. Credit to cloudfuzzer.
+    - CVE-2016-1644: Use-after-free in Blink. Credit to Atte Kettunen.
+    - CVE-2016-1645: Out-of-bounds write in PDFium.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 09 Mar 2016 02:27:50 +0000
+
+chromium-browser (49.0.2623.75-2) unstable; urgency=medium
+
+  * Update standards version.
+  * Add libffi-dev build dependency.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 04 Mar 2016 00:14:12 +0000
+
+chromium-browser (49.0.2623.75-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-1630: Same-origin bypass in Blink. Credit to Mariusz Mlynski.
+    - CVE-2016-1631: Same-origin bypass in Pepper Plugin. Credit to Mariusz
+      Mlynski.
+    - CVE-2016-1632: Bad cast in Extensions. Credit to anonymous.
+    - CVE-2016-1633: Use-after-free in Blink. Credit to cloudfuzzer.
+    - CVE-2016-1634: Use-after-free in Blink. Credit to cloudfuzzer.
+    - CVE-2016-1635: Use-after-free in Blink. Credit to Rob Wu.
+    - CVE-2016-1636: SRI Validation Bypass. Credit to ryan@cyph.com.
+    - CVE-2015-8126: Out-of-bounds access in libpng. Credit to joerg.bornemann.
+    - CVE-2016-1637: Information Leak in Skia. Credit to Keve Nagy.
+    - CVE-2016-1638: WebAPI Bypass. Credit to Rob Wu.
+    - CVE-2016-1639: Use-after-free in WebRTC. Credit to Khalil Zhani.
+    - CVE-2016-1640: Origin confusion in Extensions UI. Credit to Luan Herrera.
+    - CVE-2016-1641: Use-after-free in Favicon. Credit to Atte Kettunen.
+    - CVE-2016-1642: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - Multiple vulnerabilities in libv8 (version 4.9.385.26).
+  * Set use_sysroot=0 to continue using system libraries.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 02 Mar 2016 23:47:54 +0000
+
+chromium-browser (48.0.2564.116-1) unstable; urgency=medium
+
+  * New stable security release:
+    - CVE-2016-1622: Same-origin bypass in Extensions. Credit to anonymous.
+    - CVE-2016-1623: Same-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2016-1624: Buffer overflow in Brotli. Credit to lukezli.
+    - CVE-2016-1625: Navigation bypass in Chrome Instant. Credit to Jann Horn.
+    - CVE-2016-1626: Out-of-bounds read in PDFium. Credit to anonymous.
+    - CVE-2016-1627: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - CVE-2016-1628: Out-of-bounds read in PDFium. Credit to anonymous.
+    - CVE-2016-1629: Same-origin bypass in Blink and Sandbox escape in Chrome.
+      Credit to anonymous.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 12 Feb 2016 02:53:42 +0000
+
+chromium-browser (48.0.2564.82-2) unstable; urgency=medium
+
+  * Build with gcc instead of clang.
+  * Use ld.gold to avoid memory exhaustion while linking (closes: #812569).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 24 Jan 2016 21:35:33 +0000
+
+chromium-browser (48.0.2564.82-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2016-1612: Bad cast in V8. Credit to cloudfuzzer.
+    - CVE-2016-1613: Use-after-free in PDFium. Credit to anonymous.
+    - CVE-2016-1614: Information leak in Blink. Credit to Christoph Diehl.
+    - CVE-2016-1615: Origin confusion in Omnibox. Credit to Ron Masas.
+    - CVE-2016-1616: URL Spoofing. Credit to Luan Herrera.
+    - CVE-2016-1617: History sniffing with HSTS and CSP. Credit to jenuis.
+    - CVE-2016-1618: Weak random number generator in Blink. Credit to Aaron
+      Toponce.
+    - CVE-2016-1619: Out-of-bounds read in PDFium. Credit to Keve Nagy.
+    - CVE-2016-1620: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - Multiple vulnerabilities in V8 fixed at the tip of the 4.8 branch
+      (currently 4.8.271.17).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 21 Jan 2016 00:06:10 +0000
+
+chromium-browser (47.0.2526.111-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - Removes native_client/toolchain files introduced in the previous upstream
+      version (closes: #807973)
+  * Drop libssl-dev build dependency.
+  * Migrate to dbgsym debug packages.
+  * Recommend fonts-liberation (closes: #808106).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 29 Dec 2015 02:45:48 +0000
+
+chromium-browser (47.0.2526.80-3) unstable; urgency=medium
+
+  * Drop change to the fullscreen UI (closes: #808076).
+  * Fix installation of the English language pak (closes: #808046).
+  * Avoid symbol conflicts between the jpeg library embedded in pdfium and
+    the system jpeg library (closes: #794031).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Wed, 16 Dec 2015 02:27:17 +0000
+
+chromium-browser (47.0.2526.80-2) unstable; urgency=medium
+
+  * Greatly simplify the arch:all build.
+  * Don't hide the UI in fullscreen mode.
+  * Ignore the GPU blacklist (closes: #802933).
+  * Fix WMClass in the desktop launcher (closes: #803989).
+  * Set the correct file name for the desktop launcher (closes: #806402).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 13 Dec 2015 06:16:19 +0000
+
+chromium-browser (47.0.2526.80-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - Multiple vulnerabilities fixed in libv8 4.7.80.23.
+    - CVE-2015-6788: Type confusion in extensions. Credit to anonymous.
+    - CVE-2015-6789: Use-after-free in Blink. Credit to cloudfuzzer.
+    - CVE-2015-6790: Escaping issue in saved pages. Credit to Inti De
+      Ceukelaire.
+    - CVE-2015-6791: Various fixes from internal audits, fuzzing and other
+      initiatives.
+  * Add support for ffmpeg 2.9 (closes: #803806).
+  * Disable accelerated video decoding (closes: #804901).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 12 Dec 2015 22:37:45 +0000
+
+chromium-browser (47.0.2526.73-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-1302: Information leak in PDF viewer. Credit to Rob Wu.
+    - CVE-2015-6765: Use-after-free in AppCache. Credit to anonymous.
+    - CVE-2015-6766: Use-after-free in AppCache. Credit to anonymous.
+    - CVE-2015-6767: Use-after-free in AppCache. Credit to anonymous.
+    - CVE-2015-6768: Cross-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2015-6769: Cross-origin bypass in core. Credit to Mariusz Mlynski.
+    - CVE-2015-6770: Cross-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2015-6771: Out of bounds access in v8. Credit to anonymous.
+    - CVE-2015-6772: Cross-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2015-6764: Out of bounds access in v8. Credit to Guang Gong.
+    - CVE-2015-6773: Out of bounds access in Skia. Credit to cloudfuzzer.
+    - CVE-2015-6774: Use-after-free in Extensions. Credit to anonymous.
+    - CVE-2015-6775: Type confusion in PDFium. Credit to Atte Kettunen.
+    - CVE-2015-6776: Out of bounds access in PDFium. Credit to Hanno Böck.
+    - CVE-2015-6777: Use-after-free in DOM. Credit to Long Liu.
+    - CVE-2015-6778: Out of bounds access in PDFium. Credit to Karl Skomski.
+    - CVE-2015-6779: Scheme bypass in PDFium. Credit to Til Jasper Ullrich.
+    - CVE-2015-6780: Use-after-free in Infobars. Credit to Khalil Zhani.
+    - CVE-2015-6781: Integer overflow in Sfntly. Credit to miaubiz.
+    - CVE-2015-6782: Content spoofing in Omnibox. Credit to Luan Herrera.
+    - CVE-2015-6784: Escaping issue in saved pages. Credit to Inti De
+      Ceukelaire.
+    - CVE-2015-6785: Wildcard matching issue in CSP. Credit to Michael
+      Ficarra.
+    - CVE-2015-6786: Scheme bypass in CSP. Credit to Michael Ficarra.
+  * Lengthen GPU timeout (closes: #781940).
+  * Enable accelerated video decoding (closes: #793815).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Thu, 03 Dec 2015 00:59:47 +0000
+
+chromium-browser (46.0.2490.71-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-6755: Cross-origin bypass in Blink. Credit to Mariusz Mlynski.
+    - CVE-2015-6756: Use-after-free in PDFium. Credit to anonymous.
+    - CVE-2015-6757: Use-after-free in ServiceWorker. Credit to Collin Payne.
+    - CVE-2015-6758: Bad-cast in PDFium. Credit to Atte Kettunen of OUSPG.
+    - CVE-2015-6759: Information leakage in LocalStorage. Credit to Muneaki
+      Nishimura.
+    - CVE-2015-6760: Improper error handling in libANGLE. Credit to Ronald
+      Crane, an independent security researcher.
+    - CVE-2015-6762: CORS bypass via CSS fonts. Credit to Muneaki Nishimura.
+    - CVE-2015-6763: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - Multiple vulnerabilities in V8 fixed at the tip of the 4.6 branch
+      (currently 4.6.85.23).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Fri, 16 Oct 2015 01:43:28 +0000
+
+chromium-browser (45.0.2454.101-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-1303: Cross-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2015-1304: Cross-origin bypass in V8. Credit to Mariusz Mlynski.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sat, 26 Sep 2015 15:57:23 +0000
+
+chromium-browser (45.0.2454.85-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - CVE-2015-1291: Cross-origin bypass in DOM. Credit to anonymous.
+    - CVE-2015-1292: Cross-origin bypass in ServiceWorker. Credit to Mariusz
+      Mlynski.
+    - CVE-2015-1293: Cross-origin bypass in DOM. Credit to Mariusz Mlynski.
+    - CVE-2015-1294: Use-after-free in Skia. Credit to cloudfuzzer.
+    - CVE-2015-1295: Use-after-free in Printing. Credit to anonymous.
+    - CVE-2015-1296: Character spoofing in omnibox. Credit to zcorpan.
+    - CVE-2015-1297: Permission scoping error in WebRequest. Credit to
+      Alexander Kashev.
+    - CVE-2015-1298: URL validation error in extensions. Credit to Rob Wu.
+    - CVE-2015-1299: Use-after-free in Blink. Credit to taro.suzuki.dev.
+    - CVE-2015-1300: Information leak in Blink. Credit to cgvwzq.
+    - CVE-2015-1301: Various fixes from internal audits, fuzzing and other
+      initiatives.
+    - Multiple vulnerabilities in the libv8 library (updated to 4.5.103.29).
+
+ -- Michael Gilbert <mgilbert@debian.org>  Tue, 01 Sep 2015 22:07:59 +0000
+
+chromium-browser (44.0.2403.157-1) unstable; urgency=medium
+
+  * New upstream stable release:
+    - GPU process race condition fixed (closes: #794472).
+  * Use system ffmpeg (closes: #763632):
+    - Thanks to Andreas Cadhalpun.
+
+ -- Michael Gilbert <mgilbert@debian.org>  Sun, 23 Aug 2015 22:43:20 +0000
+
 chromium-browser (44.0.2403.107-1blankon1) tambora; urgency=medium
 
   * New Upstream release 
@@ -66,7 +566,7 @@ chromium-browser (43.0.2357.124-2) unstable; urgency=medium
 
   * More updates to debian/copyright.
   * Disable all external component loading.
-  * Set flag to avoid hidden items in the about:extensions dialog.
+  * Set flag to avoid hidden items in the about: extensions dialog.
 
  -- Michael Gilbert <mgilbert@debian.org>  Fri, 19 Jun 2015 05:31:48 +0000
 

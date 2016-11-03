@@ -1,12 +1,14 @@
+description: disable loading external components
+
 --- a/chrome/browser/extensions/external_component_loader.cc
 +++ b/chrome/browser/extensions/external_component_loader.cc
-@@ -51,6 +51,9 @@ bool ExternalComponentLoader::IsModifiab
+@@ -39,6 +39,9 @@ ExternalComponentLoader::~ExternalCompon
  
  void ExternalComponentLoader::StartLoading() {
    prefs_.reset(new base::DictionaryValue());
 +  LoadFinished();
 +  return;
 +
-   std::string app_id = extension_misc::kInAppPaymentsSupportAppId;
-   prefs_->SetString(app_id + ".external_update_url",
-                     extension_urls::GetWebstoreUpdateUrl().spec());
+   AddExternalExtension(extension_misc::kInAppPaymentsSupportAppId);
+ 
+   if (HotwordServiceFactory::IsHotwordAllowed(profile_))
